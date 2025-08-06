@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --card-bg-color: #1e1e1e;
+    --text-color: #f0f0f0;
+    --accent-color: #00aaff;
+    --win-color: #4caf50;
+    --lose-color: #f44336;
+    --draw-color: #ff9800;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--card-bg-color);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    background: #2c2c2c;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.score p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.score span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.choice-display p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.choice-display p:last-child {
+    font-size: 3rem;
+    height: 3rem;
+}
+
+.result-display {
+    margin-bottom: 40px;
+}
+
+#result-text {
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#result-text.win {
+    color: var(--win-color);
+}
+
+#result-text.lose {
+    color: var(--lose-color);
+}
+
+#result-text.draw {
+    color: var(--draw-color);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.game-btn {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    perspective: 500px;
+}
+
+.button-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #383838;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    transform: translateZ(10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+                0 5px 10px rgba(255, 255, 255, 0.1) inset,
+                0 -5px 10px rgba(0, 0, 0, 0.3) inset;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.game-btn:hover .button-face {
+    transform: translateZ(20px) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.game-btn:active .button-face {
+    transform: translateZ(0) translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3),
+                0 2px 5px rgba(255, 255, 255, 0.1) inset,
+                0 -2px 5px rgba(0, 0, 0, 0.3) inset;
+}
+
+#reset-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#reset-btn:hover {
+    background-color: #0077b6;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    .buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .game-btn {
+        width: 100px;
+        height: 100px;
+    }
+    .button-face {
+        font-size: 2.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
